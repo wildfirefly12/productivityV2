@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Productivity.Controllers;
+namespace API.Controllers;
 
 [Route("api/[controller]/[action]")]
 public class BaseApiController : ControllerBase

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Persistence;
 
 public class DataContext : IdentityDbContext<User> {
-        //public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<NoteCategory> NoteCategories { get; set; }
         public DbSet<ListCategory> ListCategories { get; set; }
         public DbSet<ItemList> Lists { get; set; }

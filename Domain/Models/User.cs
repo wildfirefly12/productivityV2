@@ -6,7 +6,7 @@ namespace Domain.Models;
 public class User : IdentityUser {
     public DateTime RegistrationDate { get; set; }
     public DateTime? LastLoggedDate { get; set; }
-    //public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+    public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
     [JsonIgnore] public ICollection<TaskItem> Tasks { get; set; }
     [JsonIgnore] public ICollection<Tag> Tags { get; set; }
     [JsonIgnore] public ICollection<Note> Notes { get; set; }
