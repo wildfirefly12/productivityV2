@@ -7,7 +7,7 @@ namespace Domain.Services;
 public class MappingProfiles : Profile {
     public MappingProfiles()
     {
-        CreateMap<List, ListDto>();
+        CreateMap<ItemList, ListDto>();
         CreateMap<ListCategory, CategoryDto>();
         CreateMap<ListItem, ListItemDto>();
         CreateMap<Note, NoteDto>();

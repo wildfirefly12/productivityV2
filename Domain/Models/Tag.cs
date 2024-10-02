@@ -10,5 +10,5 @@ public class Tag {
     public User User { get; set; }
     [JsonIgnore] public ICollection<TaskItem> Tasks { get; set; }
     [JsonIgnore] public ICollection<Note> Notes { get; set; }
-    [JsonIgnore] public ICollection<List> Lists { get; set; }
+    [JsonIgnore] public ICollection<ItemList> Lists { get; set; }
 }

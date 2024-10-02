@@ -2,7 +2,7 @@
 
 namespace Domain.Models;
 
-public class List
+public class ItemList
 {
     public long Id { get; set; }
     public string Title { get; set; }

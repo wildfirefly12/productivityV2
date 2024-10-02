@@ -6,5 +6,5 @@ public class ListCategory {
     public string Color { get; set; }
     public string UserId { get; set; }
     public User User { get; set; }
-    public ICollection<List> Lists { get; set; }
+    public ICollection<ItemList> Lists { get; set; }
 }

@@ -11,5 +11,5 @@ public class User : IdentityUser {
     [JsonIgnore] public ICollection<Tag> Tags { get; set; }
     [JsonIgnore] public ICollection<Note> Notes { get; set; }
     [JsonIgnore] public ICollection<NoteCategory> Categories { get; set; }
-    [JsonIgnore] public ICollection<List> Lists { get; set; }
+    [JsonIgnore] public ICollection<ItemList> Lists { get; set; }
 }

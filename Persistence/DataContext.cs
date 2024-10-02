@@ -8,7 +8,7 @@ public class DataContext : IdentityDbContext<User> {
         //public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<NoteCategory> NoteCategories { get; set; }
         public DbSet<ListCategory> ListCategories { get; set; }
-        public DbSet<List> Lists { get; set; }
+        public DbSet<ItemList> Lists { get; set; }
         public DbSet<ListItem> ListItems { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -30,20 +30,20 @@ public class DataContext : IdentityDbContext<User> {
                 .HasForeignKey(n => n.CategoryId)
                 .IsRequired();
 
-            builder.Entity<List>()
+            builder.Entity<ItemList>()
                 .HasOne(l => l.ListCategory)
                 .WithMany(c => c.Lists)
                 .HasForeignKey(l => l.CategoryId)
                 .IsRequired();
 
-            builder.Entity<List>()
+            builder.Entity<ItemList>()
                 .HasOne(l => l.User)
                 .WithMany(u => u.Lists)
                 .HasForeignKey(l => l.UserId)
                 .IsRequired();
 
             builder.Entity<ListItem>()
-                .HasOne(l => l.List)
+                .HasOne(l => l.ItemList)
                 .WithMany(u => u.Items)
                 .HasForeignKey(l => l.ListId)
                 .IsRequired();
@@ -57,13 +57,13 @@ public class DataContext : IdentityDbContext<User> {
                     r => r.HasOne(typeof(Task)).WithMany().HasForeignKey("TasksId").HasPrincipalKey(nameof(Task.Id)),
                     j => j.HasKey("TasksId", "TagsId"));
 
-            builder.Entity<List>()
+            builder.Entity<ItemList>()
                 .HasMany(e => e.Tags)
                 .WithMany(e => e.Lists)
                 .UsingEntity(
                     "ListTag",
                     l => l.HasOne(typeof(Tag)).WithMany().HasForeignKey("TagsId").HasPrincipalKey(nameof(Tag.Id)),
-                    r => r.HasOne(typeof(List)).WithMany().HasForeignKey("ListsId").HasPrincipalKey(nameof(List.Id)),
+                    r => r.HasOne(typeof(ItemList)).WithMany().HasForeignKey("ListsId").HasPrincipalKey(nameof(ItemList.Id)),
                     j => j.HasKey("ListsId", "TagsId"));
 
             builder.Entity<Note>()

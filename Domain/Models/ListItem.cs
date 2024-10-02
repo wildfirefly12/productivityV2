@@ -5,5 +5,5 @@ public class ListItem
         public string Description { get; set; }
         public bool IsChecked { get; set; }
         public long ListId { get; set; }
-        public List List { get; set; }
+        public ItemList ItemList { get; set; }
     }
